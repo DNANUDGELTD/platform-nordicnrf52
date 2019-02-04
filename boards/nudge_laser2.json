@@ -15,6 +15,9 @@
       "sd_name": "s132",
       "sd_version": "6.1.1",
       "sd_fwid": "0x00B7"
+    },
+    "bootloader": {
+      "variant": "feather_nrf52832"
     }
   },
   "connectivity": [
