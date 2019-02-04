@@ -1,0 +1,48 @@
+{
+  "build": {
+    "core": "nRF5",
+    "cpu": "cortex-m4",
+    "extra_flags": "-DARDUINO_NUDGE_LASER -DNRF52",
+    "f_cpu": "64000000L",
+    "ldscript": "nrf52832_s132_v6.ld",
+    "mcu": "nrf52832",
+    "variant": "dnaband_v4_1",
+    "bsp": {
+      "name": "adafruit"
+    },
+    "softdevice": {
+      "sd_flags": "-DS132",
+      "sd_name": "s132",
+      "sd_version": "6.1.1",
+      "sd_fwid": "0x00B7"
+    }
+  },
+  "connectivity": [
+    "bluetooth"
+  ],
+  "debug": {
+    "jlink_device": "nRF52832_xxAA",
+    "onboard_tools": [
+      "jlink"
+    ],
+    "svd_path": "nrf52.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "mbed"
+  ],
+  "name": "NUDGEband v4",
+  "upload": {
+    "maximum_ram_size": 65536,
+    "maximum_size": 524288,
+    "require_upload_port": true,
+    "speed": 115200,
+    "protocol": "jlink",
+    "protocols": [
+      "nrfutil",
+      "jlink"
+    ]
+  },
+  "url": "http://www.dnanudge.com/en/DnaBand",
+  "vendor": "DNAnudge"
+}
