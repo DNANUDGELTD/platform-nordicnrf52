@@ -102,35 +102,6 @@ env.Append(
                 "--line-length=44"
             ]), "Building $TARGET"),
             suffix=".hex"
-        ),
-        PackageDfu=Builder(
-            action=env.VerboseAction(" ".join([
-# IMPROVE: install and use nrfutil from tool-nrfutil 
-#                join(platform.get_package_dir("tool-nrfutil") or "",
-#                     "nrfutil"),
-                "nrfutil",
-                "dfu",
-                "genpkg",
-                "--dev-type",
-                "0x0052",
-                "--sd-req",
-                "0x00A5",
-                "--application",
-                "$SOURCES",
-                "$TARGET"
-            ]), "Building $TARGET"),
-            suffix=".zip"
-        ),
-        SignBin=Builder(
-            action=env.VerboseAction(" ".join([
-                "python",
-                '"'+join(platform.get_package_dir("framework-arduinoadafruitnrf52") or "",
-                     "tools", "pynrfbintool", "pynrfbintool.py")+'"',
-                "--signature",
-                "$TARGET",
-                "$SOURCES"
-            ]), "Signing $SOURCES"),
-            suffix="_signature.bin"
         )
     )
 )
@@ -181,6 +152,7 @@ if "nobuild" in COMMAND_LINE_TARGETS:
     target_firm = join("$BUILD_DIR", "${PROGNAME}.hex")
 else:
     target_elf = env.BuildProgram()
+
     if "SOFTDEVICEHEX" in env:
         target_firm = env.MergeHex(
             join("$BUILD_DIR", "${PROGNAME}"),
@@ -198,12 +170,10 @@ else:
                 join("$BUILD_DIR", "${PROGNAME}"),
                 env.ElfToBin(join("$BUILD_DIR", "${PROGNAME}"), target_elf))
     else:
-        target_firm = env.SignBin(
-            join("$BUILD_DIR", "${PROGNAME}"),
-            env.ElfToBin(join("$BUILD_DIR", "${PROGNAME}"), target_elf))
+        target_firm = env.ElfToHex(
+            join("$BUILD_DIR", "${PROGNAME}"), target_elf)
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
-AlwaysBuild(env.Alias("dfu", dfu_package))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
 
 if "DFUBOOTHEX" in env:
@@ -326,7 +296,7 @@ elif upload_protocol.startswith("jlink"):
             "-if", ("jtag" if upload_protocol == "jlink-jtag" else "swd"),
             "-autoconnect", "1"
         ],
-        UPLOADCMD="$UPLOADER $UPLOADERFLAGS -CommanderScript "+'"'+"${__jlink_cmd_script(__env__, SOURCE)}"+'"'
+        UPLOADCMD='$UPLOADER $UPLOADERFLAGS -CommanderScript "${__jlink_cmd_script(__env__, SOURCE)}"'
     )
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
 
