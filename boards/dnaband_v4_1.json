@@ -6,7 +6,7 @@
     "f_cpu": "64000000L",
     "ldscript": "nrf52832_s132_v6.ld",
     "mcu": "nrf52832",
-    "variant": "dnaband_v4_1",
+    "variant": "DnaBand_v4_1",
     "bsp": {
       "name": "adafruit"
     },
@@ -15,7 +15,11 @@
       "sd_name": "s132",
       "sd_version": "6.1.1",
       "sd_fwid": "0x00B7"
+    },
+    "bootloader": {
+      "variant": "dnaband_v4_1"
     }
+
   },
   "connectivity": [
     "bluetooth"
