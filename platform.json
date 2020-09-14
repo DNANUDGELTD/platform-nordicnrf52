@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/platformio/platform-nordicnrf52.git"
+    "url": "https://github.com/DNANUDGELTD/platform-nordicnrf52.git"
   },
   "version": "2.1.0",
   "packageRepositories": [
@@ -31,7 +31,7 @@
     "framework-arduinoadafruitnrf52": {
       "type": "framework",
       "optional": true,
-      "version": "https://github.com/dnanudgeltd/Adafruit_nRF52_Arduino.git"
+      "version": "https://github.com/DNANUDGELTD/Adafruit_nRF52_Arduino.git"
     },
     "tool-sreccat": {
       "version": "~1.164.0"
