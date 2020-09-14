@@ -165,7 +165,7 @@ env.Append(
         SignBin=Builder(
             action=env.VerboseAction(" ".join([
                 "python",
-                '"'+join(platform.get_package_dir("framework-arduinoadafruitnrf52") or "",
+                '"'+join(platform.get_package_dir("framework-arduinoadafruitnrf52-dnanudge") or "",
                      "tools", "pynrfbintool", "pynrfbintool.py")+'"',
                 "--signature",
                 "$TARGET",
