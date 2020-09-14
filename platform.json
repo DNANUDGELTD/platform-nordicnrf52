@@ -19,7 +19,7 @@
   ],
   "frameworks": {
     "arduino": {
-      "package": "framework-arduinoadafruitnrf52",
+      "package": "framework-arduinoadafruitnrf52-dnanudge",
       "script": "builder/frameworks/arduino/arduino.py"
     }
   },
@@ -28,7 +28,7 @@
       "type": "toolchain",
       "version": ">=1.60301.0"
     },
-    "framework-arduinoadafruitnrf52": {
+    "framework-arduinoadafruitnrf52-dnanudge": {
       "type": "framework",
       "optional": true,
       "version": "https://github.com/DNANUDGELTD/Adafruit_nRF52_Arduino.git"
