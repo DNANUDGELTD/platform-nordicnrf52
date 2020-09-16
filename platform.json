@@ -30,7 +30,6 @@
     },
     "framework-arduinoadafruitnrf52-dnanudge": {
       "type": "framework",
-      "optional": true,
       "version": "https://github.com/DNANUDGELTD/Adafruit_nRF52_Arduino.git"
     },
     "tool-sreccat": {
