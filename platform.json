@@ -29,7 +29,7 @@
       "version": ">=1.60301.0"
     },
     "framework-arduinoadafruitnrf52-dnanudge": {
-      "type": "framework",
+      "type": "toolchain",
 	  "optional": true,
       "version": "https://github.com/DNANUDGELTD/Adafruit_nRF52_Arduino#test_stavros"
     },
