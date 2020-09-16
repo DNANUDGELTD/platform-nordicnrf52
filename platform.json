@@ -29,9 +29,9 @@
       "version": ">=1.60301.0"
     },
     "framework-arduinoadafruitnrf52-dnanudge": {
-      "type": "git",
+      "type": "framework",
 	  "optional": true,
-      "version": "https://github.com/DNANUDGELTD/Adafruit_nRF52_Arduino#master"
+      "version": "https://github.com/DNANUDGELTD/Adafruit_nRF52_Arduino#test_stavros"
     },
     "tool-sreccat": {
       "version": "~1.164.0"
